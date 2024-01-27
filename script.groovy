@@ -25,7 +25,7 @@ def deployApp() {
     def sshCredentialsId = 'your-ssh-credentials-id'
 
     // Utilisation du plugin SSH Agent pour gérer les clés SSH
-    sshagent(['your-ssh-credentials-id']) {
+    sshagent(['ec2-credentials']) {
         // Commandes SSH pour déployer l'application sur votre instance EC2
         sh "ssh -o StrictHostKeyChecking=no ${remoteUser}@${remoteHost} ${dockercmd}"
 
