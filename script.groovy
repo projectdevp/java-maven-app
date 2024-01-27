@@ -18,7 +18,7 @@ def deployApp() {
 
     // Configuration des informations de connexion à votre instance EC2
     def remoteUser = 'ec2-user'
-    def remoteHost = 'your-ec2-instance-ip'
+    def remoteHost = '35.180.128.54'
     def dockercmd= 'docker run -d -p 8080:8080 tawfiqnajib/java-maven-app:jma-3.0'
 
     // Définition des clés SSH à utiliser (doit être configuré dans Jenkins sous "Manage Jenkins" -> "Manage Credentials")
