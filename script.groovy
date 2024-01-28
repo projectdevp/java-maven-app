@@ -19,10 +19,11 @@ def deployApp() {
     // Configuration des informations de connexion à votre instance EC2
     def remoteUser = 'ec2-user'
     def remoteHost = '35.180.128.54'
-    def dockercmd= 'docker run -d -p 8080:8080 tawfiqnajib/java-maven-app:jma-3.0'
+    def dockercmd= 'docker-compose -f docker-compose.yaml up --detach'
     // Utilisation du plugin SSH Agent pour gérer les clés SSH
     sshagent(['ec2-credentials']) {
         // Commandes SSH pour déployer l'application sur votre instance EC2
+        sh "scp docker-compose.yaml ${remoteUser}@${remoteHost}:/home/ec2-user"
         sh "ssh -o StrictHostKeyChecking=no ${remoteUser}@${remoteHost} ${dockercmd}"
 
     }
