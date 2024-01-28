@@ -23,7 +23,7 @@ def deployApp() {
     // Utilisation du plugin SSH Agent pour gérer les clés SSH
     sshagent(['ec2-credentials']) {
         // Commandes SSH pour déployer l'application sur votre instance EC2
-        sh "scp docker-compose.yaml ${remoteUser}@${remoteHost}:/home/ec2-user"
+        sh "scp -o StrictHostKeyChecking=no docker-compose.yaml ${remoteUser}@${remoteHost}:/home/ec2-user"
         sh "ssh -o StrictHostKeyChecking=no ${remoteUser}@${remoteHost} ${dockercmd}"
 
     }
