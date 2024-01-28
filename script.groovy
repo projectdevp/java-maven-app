@@ -18,7 +18,7 @@ def deployApp() {
 
     // Configuration des informations de connexion à votre instance EC2
     def remoteUser = 'ec2-user'
-    def remoteHost = '35.180.128.54'
+    def remoteHost = '13.38.119.161'
     def dockercmd= 'docker-compose -f docker-compose.yaml up --detach'
     // Utilisation du plugin SSH Agent pour gérer les clés SSH
     sshagent(['ec2-credentials']) {
